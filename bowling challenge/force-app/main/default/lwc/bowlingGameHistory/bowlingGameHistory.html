@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Game History">
+        <template if:true={gameList}>
+            <lightning-datatable
+                key-field="Id"
+                data={gameList}
+                hide-checkbox-column="true"
+                columns={columns}>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>

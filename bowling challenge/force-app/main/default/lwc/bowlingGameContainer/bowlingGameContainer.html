@@ -1,0 +1,20 @@
+<template>
+    <div class="container">
+        <lightning-layout multiple-rows="false" horizontal-align="center" vertical-align="end">
+            <lightning-layout-item size="12" padding="around-small">
+                <template if:false={showGameScreen}>
+                    <c-bowling-game-creator ongamestart={handleGameStart}></c-bowling-game-creator>
+                </template>
+                <template if:true={showGameScreen}>
+                    <c-bowling-game-screen game-id={gameId}></c-bowling-game-screen>
+                </template>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-small">
+                <template if:false={showGameScreen}>
+                    <c-bowling-game-history></c-bowling-game-history>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+    
+</template>

@@ -1,0 +1,37 @@
+<template>
+    <lightning-card>
+        <div class="slds-text-heading_large slds-text-align_center" >Welcome to the Bowling Game !!</div>
+        <div class="slds-m-around_medium slds-text-align_center">
+            <img src={image}>
+        </div>
+        <div class="slds-form">
+            <div class="slds-form-element_horizontal">
+                <label class="slds-form-element__label">Enter game name</label>
+                <div class="slds-form-element__control">
+                    <lightning-input data-name="gameName" type="text" placeholder="type here..." value={gameName} onchange={handleGameName} style="width: 255px !important;"></lightning-input>
+                </div>
+            </div>
+            <div class="slds-form-element_horizontal">
+                <label class="slds-form-element__label">Enter number of players</label>
+                <div class="slds-form-element__control">
+                    <lightning-input data-name="totalPlayers" type="number" placeholder="type here..." value={totalPlayers} onchange={handlePlayerSize} style="width: 255px !important;"></lightning-input>
+                </div>
+            </div>
+        </div>
+
+        <lightning-layout horizontal-align="center" multiple-rows="true">
+            <template for:each={playerList} for:item="player" for:index="index">
+                <lightning-layout-item key= {player} padding="around-small" size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="Player 1">{player} Name</p>
+                        <p><lightning-input data-name="playerName" type="text" name={player}></lightning-input></p>
+                    </div>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+        <lightning-layout  horizontal-align="center">
+            <lightning-button variant="brand" label="Submit" title="Submit" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        </lightning-layout>
+        
+    </lightning-card>
+</template>
